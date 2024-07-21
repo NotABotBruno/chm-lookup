@@ -24,7 +24,26 @@ function activate(context) {
 		vscode.window.showInformationMessage('Hello World from CHM lookup!');
 	});
 
+	const searchCHM = vscode.commands.registerCommand('chm.searchText', () => {
+		const editor = vscode.window.activeTextEditor;
+
+		if(editor) {
+			const selection = editor.selection;
+			const selectedText = editor.document.getText(selection);
+
+			const config = vscode.workspace.getConfiguration('chmFunctionFinder');
+			const chmFilePath = config.get('chmFilePath');
+
+			if (selectedText) {
+                vscode.window.showInformationMessage(`Searching CHM for: ${selectedText} in ${chmFilePath}`);
+                // Implement your logic to search the selected text in the CHM file
+            } else {
+                vscode.window.showInformationMessage('No text selected.');
+            }
+		}
+	})
 	context.subscriptions.push(disposable);
+	context.subscriptions.push(searchCHM);
 }
 
 // This method is called when your extension is deactivated

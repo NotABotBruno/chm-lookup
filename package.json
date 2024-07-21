@@ -15,7 +15,31 @@
     "commands": [{
       "command": "chm-lookup.helloWorld",
       "title": "Hello World"
-    }]
+    },
+    {
+      "command": "chm.searchText",
+      "title": "Search in CHM"
+    }],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "editorTextFocus",
+          "command": "chm.searchText",
+          "group": "z_commands"
+        }
+      ]
+    },
+    "configuration": {
+      "type": "object",
+      "title": "CHM Function Finder Configuration",
+      "properties": {
+        "chmFunctionFinder.chmFilePath": {
+          "type": "string",
+          "default": "",
+          "description": "Path to the CHM file."
+        }
+      }
+    }
   },
   "scripts": {
     "lint": "eslint .",
