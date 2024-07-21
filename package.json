@@ -23,7 +23,7 @@
     "menus": {
       "editor/context": [
         {
-          "when": "editorTextFocus",
+          "when": "editorTextFocus && isWindows",
           "command": "chm.searchText",
           "group": "z_commands"
         }
