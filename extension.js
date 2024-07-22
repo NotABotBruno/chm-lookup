@@ -10,21 +10,6 @@ import { exec } from 'child_process'
  * @param {vscode.ExtensionContext} context
  */
 function activate(context) {
-
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "chm-lookup" is now active!');
-
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with  registerCommand
-	// The commandId parameter must match the command field in package.json
-	const disposable = vscode.commands.registerCommand('chm-lookup.helloWorld', function () {
-		// The code you place here will be executed every time your command is executed
-
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from CHM lookup!');
-	});
-
 	const searchCHM = vscode.commands.registerCommand('chm.searchText', () => {
 		const editor = vscode.window.activeTextEditor;
 
@@ -57,7 +42,7 @@ function activate(context) {
 			}			
 		}
 	})
-	context.subscriptions.push(disposable);
+
 	context.subscriptions.push(searchCHM);
 }
 
