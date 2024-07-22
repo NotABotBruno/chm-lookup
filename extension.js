@@ -37,7 +37,8 @@ function activate(context) {
 				const chmFilePath = config.get('chmFilePath');
 				
 				if(chmFilePath){
-					const command = `powershell -Command "Get-Content '${chmFilePath}' | Select-String '${selectedText}'"`;
+					const subcomand = `Start-Process "hh.exe" -ArgumentList "mk:@MSITStore:'${chmFilePath}'::/'${selectedText}'.html"`
+					const command = `powershell -Command "'${subcomand}'"`;
 	
 					exec(command, (error, stdout, stderr) => {
 						if (error) {
