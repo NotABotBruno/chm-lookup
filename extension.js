@@ -22,9 +22,11 @@ function activate(context) {
 				const chmFilePath = config.get('chmFilePath');
 				
 				if(chmFilePath){
-					const subcomand = `Start-Process "hh.exe" -ArgumentList "mk:@MSITStore:'${chmFilePath}'::/'${selectedText}'.html"`
-					const command = `powershell -Command "'${subcomand}'"`;
-	
+					const subcommand = `Start-Process "hh.exe" -ArgumentList "mk:@MSITStore:'${chmFilePath}'::/${selectedText}.html"`;
+					const command = `powershell -Command "${subcommand}"`;
+					
+					vscode.window.showInformationMessage(subcommand);
+					
 					exec(command, (error, stdout, stderr) => {
 						if (error) {
 							vscode.window.showErrorMessage(`Error: ${error.message}`);
@@ -34,8 +36,10 @@ function activate(context) {
 							vscode.window.showErrorMessage(`Error: ${stderr}`);
 							return;
 						}
-						vscode.window.showInformationMessage(`Search Results:\n${stdout}`);
+						// Optional: Show success message or handle stdout if needed
+						vscode.window.showInformationMessage('CHM file opened successfully.');
 					});
+					
 				} else {
 					vscode.window.showInformationMessage('CHM file path is not set. Please configure it in the settings.');
 				}
