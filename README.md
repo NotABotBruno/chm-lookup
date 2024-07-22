@@ -1,4 +1,4 @@
-# chmvFunction Finder README
+# CHM Function Finder README
 
 *CHM Function Finder* is a Visual Studio Code extension that streamlines access to your CHM (Compiled HTML Help) documentation.
 
