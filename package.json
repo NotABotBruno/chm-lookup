@@ -2,7 +2,7 @@
   "name": "chm-lookup",
   "displayName": "CHM lookup",
   "description": "Easily link your CHM (Compiled HTML Help) files and streamline your development workflow. With CHM Function Finder, you can right-click on any function in your code and instantly search for its name within your CHM documentation.",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "engines": {
     "vscode": "^1.91.0"
   },
